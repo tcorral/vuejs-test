@@ -1,0 +1,21 @@
+#canvas {
+    width: 600px;
+    padding: 200px 20px;
+    text-align: center;
+    border: 1px solid #333;
+}
+.level-1 {
+    padding: 10px;
+    border: 1px solid red;
+}
+.level-2 {
+    padding: 10px;
+    border: 1px solid green;
+}
+.level-3 {
+    padding: 10px;
+    border: 1px solid blue;
+}
+.available {
+    color: green;
+}

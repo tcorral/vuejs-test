@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VueJS Tutorials</title>
+    <link rel="stylesheet" href="styles/main.css"/>
+</head>
+<body>
+    <div class="app">
+        {{message}}
+        <a v-bind:href="message">Say Hi</a>
+        <input type="text" v-bind:value="message"/>
+        <a :href="message">Say Hi</a>
+        <div v-bind:class="{ available: true }">Available Content</div>
+    </div>
+    <div class="app">
+        {{message}}
+        <br/>
+        {{myHTML}}
+        <p v-html="myHTML"></p>
+        <form v-on:submit.prevent="submit">
+            <input v-model.number="age" v-on:keyup="logAge" type="number"/>
+            <input type="submit" v-model.lazy="myHTML"/>
+            <input type="text" v-model="myHTML" v-on:keydown.13.prevent="enterPressed"/>
+        </form>
+    </div>
+    <div class="app">
+        {{greet()}}
+        <button v-text="message"></button>
+        <button @click="add">Add simple</button>
+        <button @contextmenu="add">Add contextmenu</button>
+        <button v-on:click.once="substract">Substract</button>
+
+        <button @click="add(2)">Add two</button>
+        <button v-on:click="substract(2)">Substract two</button>
+
+        <button @dblclick="add(10)">Add ten</button>
+        <button v-on:dblclick="substract(10)">Substract ten</button>
+        <p>{{age}}</p>
+        <div id="canvas" v-on:mousemove="trackMouse"> {{x}}, {{y}}</div>
+
+        <div class="level-1" v-on:click.self="click('level 1')">
+            <div class="level-2" v-on:click="click('level 2')">
+                <a class="level-3" v-on:click="click('level 3')" href="http://www.google.es">Go to Google</a>
+                <br/>
+                <a class="level-3" v-on:click.prevent="click('level 3')" href="http://www.google.es">Show Alert without navigate to Google</a>
+                <br/>
+                <a class="level-3" v-on:click="click('level 3')">Propagate Click</a>
+                <br/>
+                <a class="level-3" v-on:click.stop="click('level 3')">Stop Propagation Click</a>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
